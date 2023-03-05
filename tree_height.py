@@ -34,10 +34,15 @@ def main():
     if n[0] == 'I':
         n=input()
         parents=input()
-    else:
-        f = open(n, "r")
-        n=f.readline()
-        parents=f.readline()
+    elif n[0]=='F':
+        n=input()
+        if not "a" in n.split("/")[-1]:
+            f = open(n, "r")
+            n=f.readline()
+            parents=f.readline()
+        else:
+            print("a in name")
+            return
     print(compute_height(int(n),parents))
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
@@ -45,7 +50,6 @@ def main():
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
-    pass
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
